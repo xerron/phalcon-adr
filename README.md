@@ -16,15 +16,6 @@ features:
 
 [skeleton project and installer](https://github.com/xerron/phalcon-expressive-skeleton),
 
-### Using the skeleton + installer
-
-The simplest way to install and get started is using the skeleton project, which
-includes installer scripts for choosing a router, dependency injection
-container, and optionally a template renderer and/or error handler. The skeleton
-also provides configuration for officially supported dependencies.
-
-To use the skeleton, use Composer's `create-project` command:
-
 ```bash
 $ composer create-project xerron/phalcon-expressive-skeleton <project dir>
 ```
