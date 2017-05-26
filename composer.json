@@ -1,8 +1,17 @@
 {
   "name": "xerron/phalcon-expressive",
-  "description": "ADR features for phalcon",
-  "keywords": ["phalcon", "adr", "expressive"],
+  "description": "Zend expressive 2 features for phalcon",
+  "keywords": ["phalcon", "zend", "expressive"],
   "type": "library",
+  "homepage": "https://github.com/xerron/phalcon-expressive",
+  "authors": [
+    {
+      "name": "E. Manuel Cerrón Angeles",
+      "email": "xerron.angels@gmail.com",
+      "homepage": "https://www.u-w-u.com"
+    }
+  ],
+  "license": "MIT",
   "require": {
     "php": "^7.0",
     "ext-phalcon": "^3.0.1"
@@ -13,11 +22,6 @@
     "mockery/mockery": "^0.9.5",
     "phpunit/phpunit": "^6.1"
   },
-  "license": "MIT",
-  "authors": [{
-    "name": "E. Manuel Cerrón Angeles",
-    "email": "xerron.angels@gmail.com"
-  }],
   "autoload": {
     "psr-4": {
       "Phalcon\\": "src/"
@@ -29,5 +33,4 @@
     }
   },
   "minimum-stability": "dev"
-
 }
