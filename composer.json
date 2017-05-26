@@ -4,6 +4,8 @@
   "keywords": ["phalcon", "adr", "expressive"],
   "type": "library",
   "require": {
+    "php": "^7.0",
+    "ext-phalcon": "^3.0.1"
   },
   "require-dev": {
     "filp/whoops": "^2.1.6",
