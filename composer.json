@@ -1,0 +1,31 @@
+{
+  "name": "xerron/phalcon-expressive",
+  "description": "ADR features for phalcon",
+  "keywords": ["phalcon", "adr", "expressive"],
+  "type": "library",
+  "require": {
+  },
+  "require-dev": {
+    "filp/whoops": "^2.1.6",
+    "malukenho/docheader": "^0.1.5",
+    "mockery/mockery": "^0.9.5",
+    "phpunit/phpunit": "^6.1"
+  },
+  "license": "MIT",
+  "authors": [{
+    "name": "E. Manuel Cerrón Angeles",
+    "email": "xerron.angels@gmail.com"
+  }],
+  "autoload": {
+    "psr-4": {
+      "Phalcon\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PhalconTest\\": "test/"
+    }
+  },
+  "minimum-stability": "dev"
+
+}
