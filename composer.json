@@ -20,7 +20,8 @@
     "filp/whoops": "^2.1.6",
     "malukenho/docheader": "^0.1.5",
     "mockery/mockery": "^0.9.5",
-    "phpunit/phpunit": "^6.1"
+    "phpunit/phpunit": "^6.1",
+    "squizlabs/php_codesniffer": "^2.6"
   },
   "autoload": {
     "psr-4": {
