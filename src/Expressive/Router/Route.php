@@ -16,32 +16,6 @@ class Route extends \Phalcon\Mvc\Router\Route
      */
     protected $options;
 
-    /**
-     * @var String
-     */
-    protected $moduleName;
-
-    /**
-     * Recoge el nombre del modulo
-     * @return String
-     */
-    public function getModuleName()
-    {
-        return $this->moduleName;
-    }
-
-    /**
-     * Establece el nombre del modulo
-     * @param $name
-     * @return $this
-     */
-    public function setModuleName($name)
-    {
-        $this->moduleName = $name;
-
-        return $this;
-    }
-
     public function setOptions(array $options)
     {
         $this->options = $options;
