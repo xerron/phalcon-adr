@@ -8,7 +8,6 @@
 
 namespace Phalcon\Di;
 
-
 class Di extends \Phalcon\Di
 {
 
@@ -40,5 +39,4 @@ class Di extends \Phalcon\Di
 
         return $this;
     }
-
 }

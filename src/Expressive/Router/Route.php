@@ -53,5 +53,4 @@ class Route extends \Phalcon\Mvc\Router\Route
     {
         return $this->options;
     }
-
 }

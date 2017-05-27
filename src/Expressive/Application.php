@@ -121,7 +121,6 @@ class Application extends Micro
         }
 
         try {
-
             $returnedValue = null;
 
             /**
@@ -150,7 +149,6 @@ class Application extends Micro
              */
             $matchedRoute = $router->getMatchedRoute();
             if (is_object($matchedRoute)) {
-
                 $handler = $this->_handlers[$matchedRoute->getRouteId()];
 
                 if (!$handler) {
@@ -175,14 +173,12 @@ class Application extends Micro
 
                 $beforeHandlers = $this->_beforeHandlers;
                 if (is_array($beforeHandlers)) {
-
                     $this->_stopped = false;
 
                     /**
                      * Calls the before handlers
                      */
                     foreach ($beforeHandlers as $before) {
-
                         if (is_object($before)) {
                             if ($before instanceof MiddlewareInterface) {
 
@@ -248,7 +244,6 @@ class Application extends Micro
                  */
 
                 if (is_array($handler)) {
-
                     $realHandler = $handler[0];
 
                     if ($realHandler instanceof Controller && $modelBinder != null) {
@@ -290,7 +285,6 @@ class Application extends Micro
                      * Calls the after binding handlers
                      */
                     foreach ($afterBindingHandlers as $afterBinding) {
-
                         if (is_object($afterBinding) && $afterBinding instanceof MiddlewareInterface) {
 
                             /**
@@ -343,14 +337,12 @@ class Application extends Micro
 
                 $afterHandlers = $this->_afterHandlers;
                 if (is_array($afterHandlers)) {
-
                     $this->_stopped = false;
 
                     /**
                      * Calls the after handlers
                      */
                     foreach ($afterHandlers as $after) {
-
                         if (is_object($after)) {
                             if ($after instanceof MiddlewareInterface) {
 
@@ -377,7 +369,6 @@ class Application extends Micro
                         $status = call_user_func($after);
                     }
                 }
-
             } else {
 
                 /**
@@ -414,7 +405,6 @@ class Application extends Micro
             $finishHandlers = $this->_finishHandlers;
 
             if (is_array($finishHandlers)) {
-
                 $this->_stopped = false;
 
                 $params = null;
@@ -428,7 +418,6 @@ class Application extends Micro
                      * Try to execute middleware as plugins
                      */
                     if (is_object($finish)) {
-
                         if ($finish instanceof MiddlewareInterface) {
 
                             /**
@@ -468,7 +457,6 @@ class Application extends Micro
                     }
                 }
             }
-
         } catch (\Exception $e) {
 
             /**
@@ -485,7 +473,6 @@ class Application extends Micro
             $errorHandler = $this->_errorHandler;
 
             if ($errorHandler) {
-
                 if (!is_callable($errorHandler)) {
                     throw new \Exception("Error handler is not callable");
                 }
@@ -503,7 +490,6 @@ class Application extends Micro
                         throw $e;
                     }
                 }
-
             } else {
                 if ($returnedValue !== false) {
                     throw $e;
@@ -534,5 +520,4 @@ class Application extends Micro
 
         return $returnedValue;
     }
-
 }
