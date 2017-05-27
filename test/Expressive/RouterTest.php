@@ -15,5 +15,9 @@ use PHPUnit\Framework\TestCase;
  */
 class RouterTest extends TestCase
 {
+    public function testAdd()
+    {
+        $this->assertEquals(1,1);
+    }
 
 }

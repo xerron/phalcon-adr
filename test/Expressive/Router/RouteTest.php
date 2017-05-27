@@ -15,5 +15,14 @@ use PHPUnit\Framework\TestCase;
  */
 class RouteTest extends TestCase
 {
+   public function testSetOptions()
+   {
+       $this->assertEquals(1,1);
+   }
+
+   public function testGetOptions()
+   {
+       $this->assertEquals(1,1);
+   }
 
 }

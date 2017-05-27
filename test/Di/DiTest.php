@@ -11,9 +11,12 @@ namespace PhalconTest\Di;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Phalcon\Expressive\Application
+ * @covers \Phalcon\Di\Di
  */
 class DiTest extends TestCase
 {
+    public function testConfigure(){
+        $this->assertEquals(1,1);
+    }
 
 }

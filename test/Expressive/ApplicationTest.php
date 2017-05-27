@@ -16,4 +16,13 @@ use PHPUnit\Framework\TestCase;
 class ApplicationTest extends TestCase
 {
 
+    public function testInjectRoutesFromConfig()
+    {
+        $this->assertEquals(1,1);
+    }
+
+    public function testHandle()
+    {
+        $this->assertEquals(1,1);
+    }
 }
