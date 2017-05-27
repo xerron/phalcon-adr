@@ -1,0 +1,8 @@
+docs_dir: doc/book
+site_dir: doc/html
+pages:
+    - index.md
+site_name: Phalcon Expressive
+site_description: 'phalcon-expressive Phalcon new age!'
+repo_url: 'https://github.com/xerron/phalcon-expressive'
+copyright: 'Copyright (c) 2017 <a href="http://www.u-w-u.com/">U-w-U Digital Marketing PERU Inc.</a>'
