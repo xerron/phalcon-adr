@@ -8,13 +8,29 @@ cache:
     - vendor
     - ~/.composer/cache
     - ~/cphalcon
+env:
+  global:
+    - COMPOSER_ARGS="--no-interaction"
+    - COVERAGE_DEPS="satooshi/php-coveralls"
+    - LEGACY_DEPS="phpunit/phpunit"
+    - SITE_URL=https://xerron.github.io/phalcon-expressive
+    - GH_USER_NAME="E. Manuel Cerrón Angeles"
+    - GH_USER_EMAIL=xerron.angels@gmail.com
+    - GH_REF=github.com/xerron/phalcon-expressive.git
 
 before_install:
   - composer install --prefer-source --no-interaction
   - vendor/bin/install-phalcon.sh 3.0.x
 
+install:
+  - composer require --dev $COMPOSER_ARGS $COVERAGE_DEPS
+
 script:
-  - vendor/bin/phpunit
+  - composer test-coverage
+  - composer cs-check
+  - composer license-check
+after_script:
+  - composer upload-coverage
 
 notifications:
-  email: xerron.angels@gmail.com
+  email: false
