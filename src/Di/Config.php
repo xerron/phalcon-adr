@@ -40,8 +40,8 @@ class Config implements ConfigInterface
      * @var array
      */
     protected $config = [
-        'services'           => [],
-        'shared'             => [],
+        'services' => [],
+        'shared' => [],
     ];
 
     /**
@@ -51,7 +51,7 @@ class Config implements ConfigInterface
     {
         // Only merge keys we're interested in
         foreach (array_keys($config) as $key) {
-            if (! isset($this->allowedKeys[$key])) {
+            if (!isset($this->allowedKeys[$key])) {
                 unset($config[$key]);
             }
         }
@@ -96,11 +96,12 @@ class Config implements ConfigInterface
                     $a[$key] = $value;
                 }
             } else {
-                if (! $value instanceof MergeRemoveKey) {
+                if (!$value instanceof MergeRemoveKey) {
                     $a[$key] = $value;
                 }
             }
         }
+
         return $a;
     }
 }

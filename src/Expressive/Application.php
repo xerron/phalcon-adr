@@ -5,6 +5,7 @@
  * @copyright Copyright (c) 2016-2017 U-w-U Digital Marketing Perú Inc. (http://www.u-w-u.com)
  * @license   https://github.com/xerron/phalcon-expressive/blob/master/LICENSE.md New BSD License
  */
+
 namespace Phalcon\Expressive;
 
 use Phalcon\Mvc\Micro;
@@ -269,7 +270,7 @@ class Application extends Micro
                     $returnedValue = $lazyReturned;
                 } else {
                     // not work functions global. but work class with __invoke()
-                    $returnedValue = call_user_func_array( new $handler, $params);
+                    $returnedValue = call_user_func_array(new $handler, $params);
                 }
 
                 /**
