@@ -6,15 +6,15 @@ php:
 cache:
   directories:
     - vendor
-    - $HOME/.composer/cache
-    - $HOME/cphalcon
-    - $HOME/pci
+    - ~/.composer/cache
+    - ~/cphalcon
 
 before_install:
-  - curl -sS https://raw.githubusercontent.com/techpivot/phalcon-ci-installer/master/bin/install-phalcon.sh | bash
-  - php -r 'echo \Phalcon\Version::get() . PHP_EOL;'
-  - composer self-update && composer update --prefer-source --no-interaction
+  - composer install --prefer-source --no-interaction
+  - vendor/bin/install-phalcon.sh 3.0.x
 
 script:
-  - php vendor/bin/phpcs
-  - php vendor/bin/phpunit
+  - vendor/bin/phpunit
+
+notifications:
+  email: xerron.angels@gmail.com
