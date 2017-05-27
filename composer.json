@@ -33,5 +33,18 @@
       "PhalconTest\\": "test/"
     }
   },
-  "minimum-stability": "dev"
+  "minimum-stability": "dev",
+  "scripts": {
+    "check": [
+      "@license-check",
+      "@cs-check",
+      "@test"
+    ],
+    "upload-coverage": "coveralls -v",
+    "cs-check": "phpcs",
+    "cs-fix": "phpcbf",
+    "test": "phpunit --colors=always",
+    "test-coverage": "phpunit --coverage-clover clover.xml",
+    "license-check": "vendor/bin/docheader check src/ test/"
+  }
 }
