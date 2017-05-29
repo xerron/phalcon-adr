@@ -11,7 +11,7 @@ namespace PhalconTest\Expressive;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Phalcon\Expressive\Application
+ * @covers \Phalcon\Expressive\Router
  */
 class RouterTest extends TestCase
 {

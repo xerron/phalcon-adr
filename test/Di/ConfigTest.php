@@ -44,6 +44,10 @@ class ConfigTest extends TestCase
         ];
         $this->assertEquals($expected, $result);
     }
+
+    /**
+     * @covers \Phalcon\Di\Di::configure
+     */
     public function testPassesKnownServiceConfigKeysToServiceManagerWithConfigMethod()
     {
         $expected = [
