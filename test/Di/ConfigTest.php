@@ -11,30 +11,70 @@ use Phalcon\Di\Config;
 use Phalcon\Di\Di;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \Phalcon\Di\Config
+ */
 class ConfigTest extends TestCase
 {
-    var $config;
-    var $serviceManager;
-
-    function setUp()
+    public function testMergeArrays()
     {
-        $data = [1, 2, 3, 4, 5];
-        $this->config = new Config($data);
-        $this->serviceManager = new Di();
+        $config = [
+            'services' => [
+                'foo' => \PhalconTest\TestAsset\InvokableObject::class,
+            ],
+            'shared' => [
+                'foo' => [
+                    \PhalconTest\TestAsset\InvokableObject::class,
+                ]
+            ],
+        ];
+        $configuration = new \PhalconTest\TestAsset\ExtendedConfig($config);
+        $result = $configuration->toArray();
+        $expected = [
+            'services' => [
+                'foo' => \PhalconTest\TestAsset\InvokableObject::class,
+                \PhalconTest\TestAsset\InvokableObject::class => \PhalconTest\TestAsset\InvokableObject::class,
+            ],
+            'shared' => [
+                'foo' => [
+                    \PhalconTest\TestAsset\InvokableObject::class,
+                    \PhalconTest\TestAsset\InvokableObject::class
+                ],
+            ],
+        ];
+        $this->assertEquals($expected, $result);
     }
-
-    public function testConfigureServiceManager()
+    public function testPassesKnownServiceConfigKeysToServiceManagerWithConfigMethod()
     {
-        $this->assertEquals(1,1);
+        $expected = [
+            'services' => [
+                'foo' => $this,
+            ],
+            'shared' => [
+                __CLASS__     => true,
+                __NAMESPACE__ => false,
+            ],
+        ];
+        $config = $expected + [
+                'foo' => 'bar',
+                'baz' => 'bat',
+            ];
+        $services = $this->prophesize(Di::class);
+        $services->configure($expected)->willReturn('CALLED');
+        $configuration = new Config($config);
+        $this->assertEquals('CALLED', $configuration->configureServiceManager($services->reveal()));
+        return [
+            'array'  => $expected,
+            'config' => $configuration,
+        ];
     }
-
-    public function testToArray()
+    /**
+     * @depends testPassesKnownServiceConfigKeysToServiceManagerWithConfigMethod
+     */
+    public function testToArrayReturnsConfiguration($dependencies)
     {
-        $this->assertEquals(1,1);
-    }
-
-    public function testMerge()
-    {
-        $this->assertEquals(1,1);
+        $configuration  = $dependencies['array'];
+        $configInstance = $dependencies['config'];
+        $this->assertSame($configuration, $configInstance->toArray());
     }
 }
